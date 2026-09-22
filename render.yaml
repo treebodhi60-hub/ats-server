@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: friday-networks-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSL
+        sync: false
+      - key: GMAIL_IMAP_HOST
+        value: imap.gmail.com
+      - key: GMAIL_IMAP_PORT
+        value: 993
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: SYNC_INTERVAL_MINUTES
+        value: 5
+      - key: INITIAL_SYNC_LOOKBACK_DAYS
+        value: 30
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-20b
